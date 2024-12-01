@@ -16,13 +16,16 @@ fn main() {
     right_list.push(r);
   });
 
-  part_one(left_list.clone(), right_list.clone());
+  part_one(&left_list, &right_list);
 
-  part_two(left_list.clone(), right_list.clone());
+  part_two(&left_list, &right_list);
 }
 
-fn part_one(mut left_list: Vec<i32>, mut right_list: Vec<i32>) {
+fn part_one(left_list: &Vec<i32>, right_list: &Vec<i32>) {
   let mut total_distance = 0;
+
+  let mut left_list = left_list.clone();
+  let mut right_list = right_list.clone();
 
   left_list.sort();
   right_list.sort();
@@ -35,7 +38,7 @@ fn part_one(mut left_list: Vec<i32>, mut right_list: Vec<i32>) {
   println!("Total Distance: {total_distance}");
 }
 
-fn part_two(left_list: Vec<i32>, right_list: Vec<i32>) {
+fn part_two(left_list: &Vec<i32>, right_list: &Vec<i32>) {
   let mut total_similarity = 0;
 
   left_list.iter().for_each(|l| {
